@@ -394,10 +394,8 @@ public class Switch extends CompoundButton {
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         mVelocityTracker.addMovement(ev);
-        // final int action = ev.getActionMasked();
-        // XXX Replaced by getAction() (getActionMasked() doesn't exist in 2.1). -- BoD
         final int action = ev.getAction();
-        switch (action) {
+        switch (action & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
                 final float x = ev.getX();
                 final float y = ev.getY();
@@ -633,11 +631,10 @@ public class Switch extends CompoundButton {
         return super.verifyDrawable(who) || who == mThumbDrawable || who == mTrackDrawable;
     }
 
-    // XXX Was on the Android source, but had to comment it out (doesn't exist in 2.1). -- BoD
-    // @Override
-    // public void jumpDrawablesToCurrentState() {
-    //     super.jumpDrawablesToCurrentState();
-    //     mThumbDrawable.jumpToCurrentState();
-    //     mTrackDrawable.jumpToCurrentState();
-    // }
+    @Override
+    public void jumpDrawablesToCurrentState() {
+        super.jumpDrawablesToCurrentState();
+        mThumbDrawable.jumpToCurrentState();
+        mTrackDrawable.jumpToCurrentState();
+    }
 }

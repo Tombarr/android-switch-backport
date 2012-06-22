@@ -1,2 +1,21 @@
-bin
-gen
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# OS X shit
+.DS_Store
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+default.properties
+build.properties
