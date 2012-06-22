@@ -44,6 +44,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.CompoundButton;
+import android.view.accessibility.AccessibilityEvent;
 
 /**
  * A Switch is a two-state toggle switch widget that can select between two
@@ -136,7 +137,6 @@ public class Switch extends CompoundButton {
         mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         final Resources res = getResources();
         mTextPaint.density = res.getDisplayMetrics().density;
-        mTextPaint.setCompatibilityScaling(res.getCompatibilityInfo().applicationScale);
 
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyle, 0);
 
